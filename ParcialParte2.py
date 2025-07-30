@@ -18,14 +18,14 @@ def letraVeces(palabra, letra, cont):
         return cont
 def Binario(numero):
     return 0
-def contarDigitos(numero, divisor, cont):
-    n = numero/divisor
-    print(n)
-    if n > 0:
-        cont = contarDigitos(numero, (divisor*10), cont+1)
-        return cont
+def contarDigitos(numero, cont):
+    if len(numero)> 0:
+        numero.remove(numero[0])
+        cont+=1
+        return contarDigitos(numero, cont)
     else:
-        return 0
+        return cont
+
 
 
 while True:
@@ -59,6 +59,12 @@ while True:
 
         case 5:
             contDIgitos = 0
-            digitos = int(input("Ingrese el numero para contar sus digitos: "))
-            x = contarDigitos(digitos, 1, contDIgitos)
+            digitos = input("Ingrese el numero para contar sus digitos: ")
+            listaDigitos = list(digitos)
+            x = contarDigitos(listaDigitos, contDIgitos)
             print(x)
+        case 6:
+            print("Saliendo...")
+            break
+        case _:
+            print("Ingrese una opcion correcta")
